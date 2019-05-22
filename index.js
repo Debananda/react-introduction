@@ -1,33 +1,34 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
+import EmployeeCard from './components/EmployeeCard'
 import './style.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      employees:[
+      employees: [
         {
-        name:'Ram Prasad',
-        email:'ram_prasad@gmail.com',
-        id:10001
-      },
-      {
-        name:'Hari Prasad',
-        email:'hari_prasad@gmail.com',
-        id:10002
-      },
-      {
-        name:'Murali Prasad',
-        email:'murali_prasad@gmail.com',
-        id:10003
-      },
-      {
-        name:'Kali Prasad',
-        email:'kali_prasad@gmail.com',
-        id:10001
-      }
+          name: 'Ram Prasad',
+          email: 'ram_prasad@gmail.com',
+          id: 10001
+        },
+        {
+          name: 'Hari Prasad',
+          email: 'hari_prasad@gmail.com',
+          id: 10002
+        },
+        {
+          name: 'Murali Prasad',
+          email: 'murali_prasad@gmail.com',
+          id: 10003
+        },
+        {
+          name: 'Kali Prasad',
+          email: 'kali_prasad@gmail.com',
+          id: 10004
+        }
       ],
       name: 'React'
     };
@@ -40,6 +41,7 @@ class App extends Component {
         <p>
           Start editing to see some magic happen :)
         </p>
+        {this.state.employees.map(employee => <EmployeeCard key={employee.id} employee={employee} />)}
       </div>
     );
   }

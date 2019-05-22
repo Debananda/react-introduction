@@ -1,0 +1,6 @@
+.card{
+  border: 1px solid #d5d5d5;
+  margin: 5px;
+  padding: 5px 10px;
+  box-shadow: 2px 1px 1px 1px #ccc;
+}
