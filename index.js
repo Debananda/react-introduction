@@ -33,15 +33,41 @@ class App extends Component {
       name: 'React'
     };
   }
+  changeName = (name, id) => {
+    const employees = this.state.employees.map(emp => {
+      if (emp.id === id) {
+        return { ...emp, name }
+      }
+      return emp;
+    });
+    //this.state.employees = employees;
+    this.setState({ employees, name: 'Test' })
+  }
+  componentWillMount() {
+    console.log('componentWillMount')
+  }
+  componentWillReceiveProps(props) {
+    console.log('componentWillRecieveProps');
+  }
+  shouldComponentUpdate() {
+    console.log('component should update')
+    return true;
+  }
+  componentDidMount() {
+    console.log('componentDidMount')
+  }
+  componentDidUpdate() {
+    console.log('componentDidUpdate')
+  }
+  componentWillUnmount(){
 
+  }
   render() {
+    console.log('render')
     return (
       <div>
         <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
-        {this.state.employees.map(employee => <EmployeeCard key={employee.id} employee={employee} />)}
+        {this.state.employees.map(employee => <EmployeeCard key={employee.id} employee={employee} changeName={this.changeName} />)}
       </div>
     );
   }
